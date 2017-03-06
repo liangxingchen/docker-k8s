@@ -1,0 +1,22 @@
+{
+  "name": "docker-k8s",
+  "version": "0.1.0",
+  "description": "kubernetes docker images",
+  "main": "index.js",
+  "scripts": {
+    "update": "node scripts/update.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/liangxingchen/docker-k8s.git"
+  },
+  "author": "Liang <liang@maichong.it> (https://github.com/liangxingchen)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/liangxingchen/docker-k8s/issues"
+  },
+  "homepage": "https://github.com/liangxingchen/docker-k8s#readme",
+  "devDependencies": {
+    "mkdirp": "^0.5.1"
+  }
+}
