@@ -25,7 +25,7 @@ const otherImages = {
     'kubectl': ['v1.0.7'],
     'kubedns-amd64': ['1.9'],
     'pause-amd64': ['3.0'],
-    'kubernetes-dashboard-amd64': ['1.5.1']
+    'kubernetes-dashboard-amd64': ['v1.5.1']
 };
 
 function update(image, tag) {
