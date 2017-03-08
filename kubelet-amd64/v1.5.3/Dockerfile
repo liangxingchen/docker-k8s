@@ -7,6 +7,6 @@ RUN apt-get update \
     && curl -sSLk https://dl.k8s.io/v1.5.3/kubernetes-node-linux-amd64.tar.gz | tar -xz -C /tmp/ \
     && cp /tmp/kubernetes/node/bin/kubelet /usr/local/bin/ \
     && rm -R /tmp/kubernetes \
-    && apt-get remove curl \
+    && apt-get remove -y curl \
     && apt-get clean \
 	&& rm -rf /var/lib/apt/lists/*
