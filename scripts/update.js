@@ -16,7 +16,7 @@ const kubeImages = [
     'kube-scheduler-amd64'
 ];
 
-const kubeTags = ['v1.5.3'];
+const kubeTags = ['v1.5.3', 'v1.6.1'];
 
 const otherImages = {
     'etcd-amd64': ['3.0.17'],
