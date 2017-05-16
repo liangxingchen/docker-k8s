@@ -16,7 +16,7 @@ const kubeImages = [
     'kube-scheduler-amd64'
 ];
 
-const kubeTags = ['v1.5.3', 'v1.6.1'];
+const kubeTags = ['v1.5.3', 'v1.6.1', 'v1.6.3'];
 
 const otherImages = {
     'etcd-amd64': ['3.0.17'],
@@ -28,7 +28,7 @@ const otherImages = {
     'kubernetes-dashboard-amd64': ['v1.5.1'],
     'nginx-ingress-controller': ['0.9.0-beta.3'],
     'defaultbackend-amd64': ['1.3'],
-    'k8s-dns-kube-dns-amd64': ['1.14.1'],
+    'k8s-dns-kube-dns-amd64': ['1.14.1', '1.14.2'],
 };
 
 function update(image, tag) {
