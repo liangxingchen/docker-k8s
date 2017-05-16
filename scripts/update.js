@@ -31,6 +31,7 @@ const otherImages = {
     'k8s-dns-kube-dns-amd64': ['1.14.1', '1.14.2'],
     'k8s-dns-dnsmasq-amd64': ['1.14.1', '1.14.2'],
     'k8s-dns-dnsmasq-nanny-amd64': ['1.14.1', '1.14.2'],
+    'k8s-dns-sidecar-amd64': ['1.14.1', '1.14.2'],
     'exechealthz-amd64': ['v1.2.0'],
 };
 
