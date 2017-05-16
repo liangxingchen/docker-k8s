@@ -25,10 +25,12 @@ const otherImages = {
     'kubectl': ['v1.0.7'],
     'kubedns-amd64': ['1.9'],
     'pause-amd64': ['3.0'],
-    'kubernetes-dashboard-amd64': ['v1.5.1'],
-    'nginx-ingress-controller': ['0.9.0-beta.3'],
+    'kubernetes-dashboard-amd64': ['v1.5.1', 'v1.6.0'],
+    'nginx-ingress-controller': ['0.9.0-beta.3', '0.9.0-beta.5'],
     'defaultbackend-amd64': ['1.3'],
     'k8s-dns-kube-dns-amd64': ['1.14.1', '1.14.2'],
+    'k8s-dns-dnsmasq-amd64': ['1.14.1', '1.14.2'],
+    'exechealthz-amd64': ['v1.2.0'],
 };
 
 function update(image, tag) {
