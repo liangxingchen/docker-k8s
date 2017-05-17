@@ -33,6 +33,9 @@ const otherImages = {
     'k8s-dns-dnsmasq-nanny-amd64': ['1.14.1', '1.14.2'],
     'k8s-dns-sidecar-amd64': ['1.14.1', '1.14.2'],
     'exechealthz-amd64': ['v1.2.0'],
+    'fluentd-elasticsearch': ['1.22'],
+    'elasticsearch': ['v2.4.1-2'],
+    'kibana': ['v4.6.1-1'],
 };
 
 function update(image, tag) {
