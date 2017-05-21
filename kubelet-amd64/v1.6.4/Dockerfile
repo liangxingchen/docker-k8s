@@ -4,7 +4,7 @@ MAINTAINER LiangXingchen <liang@maichong.it>
 
 RUN apt-get update \
     && apt-get install -y --no-install-recommends curl ca-certificates \
-    && curl -sSLk https://dl.k8s.io/v1.6.3/kubernetes-node-linux-amd64.tar.gz | tar -xz -C /tmp/ \
+    && curl -sSLk https://dl.k8s.io/v1.6.4/kubernetes-node-linux-amd64.tar.gz | tar -xz -C /tmp/ \
     && cp /tmp/kubernetes/node/bin/kubelet /usr/local/bin/ \
     && rm -R /tmp/kubernetes \
     && apt-get remove -y curl \

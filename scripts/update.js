@@ -16,7 +16,7 @@ const kubeImages = [
     'kube-scheduler-amd64'
 ];
 
-const kubeTags = ['v1.5.3', 'v1.6.1', 'v1.6.3'];
+const kubeTags = ['v1.5.3', 'v1.6.1', 'v1.6.3', 'v1.6.4'];
 
 const otherImages = {
     'etcd-amd64': ['3.0.17'],
@@ -38,11 +38,24 @@ const otherImages = {
     'kibana': ['v4.6.1-1'],
 };
 
+const withCA = [
+    'kube-proxy-amd64',
+    'kubectl',
+    'k8s-dns-kube-dns-amd64'
+];
+
 function update(image, tag) {
     console.log('update ' + image + ':' + tag);
     let file = path.join(process.cwd(), image, tag, 'Dockerfile');
     mkdirp.sync(path.dirname(file));
     let content = `FROM gcr.io/google_containers/${image}:${tag}\nMAINTAINER Liang <liang@maichong.it>`;
+
+    if (withCA.indexOf(image) > -1) {
+        content += '\nRUN apt-get update ';
+        content += '&& apt-get install -y --no-install-recommends ca-certificates ';
+        content += '&& apt-get clean ';
+        content += '&& rm -rf /var/lib/apt/lists/* ';
+    }
     fs.writeFileSync(file, content);
 }
 
