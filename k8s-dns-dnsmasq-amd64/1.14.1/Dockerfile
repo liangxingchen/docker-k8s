@@ -1,2 +1,2 @@
 FROM gcr.io/google_containers/k8s-dns-dnsmasq-amd64:1.14.1
-MAINTAINER Liang <liang@maichong.it>
+MAINTAINER https://maichong.io

@@ -7,6 +7,7 @@
 const fs = require('fs');
 const path = require('path');
 const mkdirp = require('mkdirp');
+const caContent = fs.readFileSync(__dirname + '/ca.pem');
 
 const kubeImages = [
     'hyperkube-amd64',
@@ -39,22 +40,27 @@ const otherImages = {
 };
 
 const withCA = [
+    'hyperkube-amd64',
+    'kube-apiserver-amd64',
+    'kube-controller-manager-amd64',
+    'kube-scheduler-amd64',
     'kube-proxy-amd64',
     'kubectl',
-    'k8s-dns-kube-dns-amd64'
+    'kubedns-amd64',
+    'k8s-dns-kube-dns-amd64',
+    'kubernetes-dashboard-amd64',
 ];
 
 function update(image, tag) {
     console.log('update ' + image + ':' + tag);
     let file = path.join(process.cwd(), image, tag, 'Dockerfile');
     mkdirp.sync(path.dirname(file));
-    let content = `FROM gcr.io/google_containers/${image}:${tag}\nMAINTAINER Liang <liang@maichong.it>`;
+    let content = `FROM gcr.io/google_containers/${image}:${tag}\nMAINTAINER https://maichong.io`;
 
     if (withCA.indexOf(image) > -1) {
-        content += '\nRUN apt-get update ';
-        content += '&& apt-get install -y --no-install-recommends ca-certificates ';
-        content += '&& apt-get clean ';
-        content += '&& rm -rf /var/lib/apt/lists/* ';
+        content += '\nCOPY ca.pem /etc/ssl/certs/Maichong.pem ';
+        let caFile = path.join(process.cwd(), image, tag, 'ca.pem');
+        fs.writeFileSync(caFile, caContent);
     }
     fs.writeFileSync(file, content);
 }
