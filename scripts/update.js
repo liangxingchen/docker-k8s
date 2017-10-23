@@ -20,7 +20,7 @@ const kubeImages = [
 const kubeTags = ['v1.5.3', 'v1.6.1', 'v1.6.3', 'v1.6.4', 'v1.8.1'];
 
 const otherImages = {
-    'etcd-amd64': ['3.0.17'],
+    'etcd-amd64': ['3.0.17', '3.1.10'],
     'kube-discovery-amd64': ['1.0'],
     'kube-dnsmasq-amd64': ['1.4', '1.4.1'],
     'kubectl': ['v1.0.7'],
