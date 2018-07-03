@@ -27,8 +27,7 @@ const otherImages = {
     'kubedns-amd64': ['1.9'],
     'pause-amd64': ['3.0', '3.1'],
     'kubernetes-dashboard-amd64': ['v1.5.1', 'v1.6.0', 'v1.7.1', 'v1.8.2'],
-    'nginx-ingress-controller': ['0.9.0-beta.3', '0.9.0-beta.5'],
-    'nginx-ingress-controller-amd64': ['0.9.0-beta.15'],
+    'nginx-ingress-controller-amd64': ['0.9.0-beta.15', '0.16.2'],
     'defaultbackend-amd64': ['1.3', '1.4'],
     'k8s-dns-kube-dns-amd64': ['1.14.1', '1.14.2', '1.14.6', '1.14.8'],
     'k8s-dns-dnsmasq-amd64': ['1.14.1', '1.14.2', '1.14.6', '1.14.8'],
@@ -50,13 +49,22 @@ const withCA = [
     'kubedns-amd64',
     'k8s-dns-kube-dns-amd64',
     'kubernetes-dashboard-amd64',
+    'nginx-ingress-controller-amd64'
 ];
+
+const fromQuay = {
+    'nginx-ingress-controller-amd64': 'kubernetes-ingress-controller/nginx-ingress-controller-amd64'
+};
 
 function update(image, tag) {
     console.log('update ' + image + ':' + tag);
     let file = path.join(process.cwd(), image, tag, 'Dockerfile');
     mkdirp.sync(path.dirname(file));
     let content = `FROM gcr.io/google_containers/${image}:${tag}\nMAINTAINER https://maichong.io`;
+
+    if (fromQuay[image]) {
+        content = `FROM quay.io/${fromQuay[image]}:${tag}\nMAINTAINER https://maichong.io`;
+    }
 
     if (withCA.indexOf(image) > -1) {
         content += '\nCOPY ca.pem /etc/ssl/certs/Maichong.pem ';
