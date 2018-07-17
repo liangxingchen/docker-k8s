@@ -27,7 +27,7 @@ const otherImages = {
     // 'kube-discovery-amd64': ['1.0'],
     // 'kube-dnsmasq-amd64': ['1.4', '1.4.1'],
     // 'kubectl': ['v1.0.7'],
-    'kubedns-amd64': ['1.9'],
+    // 'kubedns-amd64': ['1.9'],
     'pause-amd64': ['3.0', '3.1'],
     // 'kubernetes-dashboard-amd64': ['v1.5.1', 'v1.6.0', 'v1.7.1', 'v1.8.2'],
     'nginx-ingress-controller-amd64': ['0.9.0-beta.15', '0.16.2'],
@@ -58,8 +58,6 @@ const withCA = [
 const fromQuay = {
     'nginx-ingress-controller-amd64': 'kubernetes-ingress-controller/nginx-ingress-controller-amd64'
 };
-
-const isBusyBox = ['kubedns-amd64'];
 
 // 需要手动升级的:
 // kubedns-amd64
