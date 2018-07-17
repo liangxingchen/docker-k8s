@@ -62,6 +62,7 @@ const fromQuay = {
 // 需要手动升级的:
 // kubedns-amd64
 // kubelet-amd64
+// flannel-amd64
 
 
 function update(image, tag) {
