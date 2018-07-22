@@ -1,7 +1,7 @@
 FROM ubuntu:16.04
 MAINTAINER https://maichong.io
 RUN apt-get update \
-  && apt-get install -y --no-install-recommends curl iproute2 net-tools ca-certificates iptables strongswan \
+  && apt-get install -y --no-install-recommends curl dnsutils iproute2 net-tools ca-certificates iptables strongswan \
   && curl -sSLk https://github.com/coreos/flannel/releases/download/v0.10.0/flannel-v0.10.0-linux-amd64.tar.gz | tar -xz -C /tmp/ \
   && mkdir -p /opt/bin \
   && mv /tmp/flanneld /opt/bin/ \
