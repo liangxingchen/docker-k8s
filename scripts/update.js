@@ -19,11 +19,15 @@ const kubeImages = [
 
 const kubeTags = [
     // 'v1.5.3', 'v1.6.1', 'v1.6.3', 'v1.6.4', 'v1.8.1',
-    'v1.9.2'
+    'v1.9.2',
+    'v1.11.1'
 ];
 
 const otherImages = {
-    'etcd-amd64': ['3.0.17', '3.1.10', '3.2.14'],
+    'etcd-amd64': [
+        //'3.0.17', '3.1.10', '3.2.14',
+        '3.3.9'
+    ],
     // 'kube-discovery-amd64': ['1.0'],
     // 'kube-dnsmasq-amd64': ['1.4', '1.4.1'],
     // 'kubectl': ['v1.0.7'],
@@ -56,7 +60,8 @@ const withCA = [
 ];
 
 const fromQuay = {
-    'nginx-ingress-controller-amd64': 'kubernetes-ingress-controller/nginx-ingress-controller-amd64'
+    'nginx-ingress-controller-amd64': 'kubernetes-ingress-controller/nginx-ingress-controller-amd64',
+    'etcd-amd64': 'coreos/etcd'
 };
 
 // 需要手动升级的:
