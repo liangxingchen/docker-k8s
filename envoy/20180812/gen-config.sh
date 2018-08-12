@@ -12,7 +12,9 @@ node:
   metadata:
     pod: "${POD}"
     app: ${APP}
+    controller: ${CONTROLLER}
     namespace: ${NAMESPACE}
+    ingress: "${INGRESS}"
     token: "${TOKEN}"
 
 dynamic_resources:
@@ -23,6 +25,10 @@ dynamic_resources:
       - envoy_grpc:
           cluster_name: ${ENVOY_API_HOST}:${ENVOY_API_PORT}
   cds_config:
+    ads: {}
+  lds_config:
+    ads: {}
+  rds_config:
     ads: {}
 
 static_resources:
