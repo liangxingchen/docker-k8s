@@ -11,10 +11,9 @@ node:
   cluster: ${ENVOY_SERVICE_CLUSTER}
   metadata:
     pod: "${POD}"
-    app: ${APP}
-    controller: ${CONTROLLER}
     namespace: ${NAMESPACE}
     ingress: "${INGRESS}"
+    uuid: "${ENVOY_UUID}"
     token: "${TOKEN}"
 
 dynamic_resources:
