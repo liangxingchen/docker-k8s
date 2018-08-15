@@ -27,8 +27,6 @@ dynamic_resources:
     ads: {}
   lds_config:
     ads: {}
-  rds_config:
-    ads: {}
 
 static_resources:
   clusters:
